@@ -1,12 +1,13 @@
 apt-get update
-apt-get install git
-sudo apt-get install nodejs
+apt-get -y install git
+apt-get -y install nodejs
 git clone https://github.com/EricssonResearch/openwebrtc-examples
 rm openwebrtc-examples/web/client/sdp.js
 wget https://raw.githubusercontent.com/EricssonResearch/openwebrtc/master/bridge/client/sdp.js -O openwebrtc-examples/web/client/sdp.js
 cd openwebrtc-examples/web/
+openssl req -x509 -newkey rsa:2048 -keyout /etc/pkey.pem -out /etc/cert.pem -days 99999 -nodes
 
-node channel_server.js 8080 8443 pkey.pem cert.perm
+node channel_server.js 8080 8443 /etc/pkey.pem /etc/cert.perm
 
 
 
