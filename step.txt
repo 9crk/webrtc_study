@@ -1,0 +1,57 @@
+apt-get update
+apt-get install git
+sudo apt-get install nodejs
+git clone https://github.com/EricssonResearch/openwebrtc-examples
+rm openwebrtc-examples/web/client/sdp.js
+wget https://raw.githubusercontent.com/EricssonResearch/openwebrtc/master/bridge/client/sdp.js -O openwebrtc-examples/web/client/sdp.js
+cd openwebrtc-examples/web/
+node channel_server.js
+
+
+
+turnserver: http://blog.csdn.net/day_day_up1991/article/details/52253892
+
+
+stop print a bunch of stuff: turnserver -v
+
+
+./turnadmin -a -u zhouhua -p 123 -r demo
+./turnadmin -A -u zhouhua -p 123 -r demo
+./turnadmin -k -u zhouhua -p 123 -r demo
+
+"urls": "turn:112.74.176.100",
+
+
+
+
+
+
+
+#如果多网卡，记得此处设置为和你所用监听的IP相对应的eth
+listening-device=eth0 
+listening-port=3478
+relay-device=eth0
+min-port=59000
+max-port=65000
+Verbose
+fingerprint
+#webrtc需要使用此选项
+lt-cred-mech
+use-auth-secret
+static-auth-secret=4080218913
+#之前turnadmin中-r参数的值，此处要对应
+realm=demo
+stale-nonce
+#可以添加用户名和密码
+user=demo:4080218913
+#测试期间可以使用example/etc中的pem，自己计算的话需要用到openssl，方法为：
+#sudo openssl req -x509 -newkey rsa:2048 -keyout /etc/turn_server_pkey.pem -out /etc/turn_server_cert.pem -days 99999 -nodes
+
+#填写pem目录即可，如
+cert=~/coturn/example/etc/turn_server_cert.pem
+pkey==~/coturn/example/etc/turn_server_pkey.pem
+no-loopback-peers
+no-multicast-peers
+mobility
+no-cli
+#各项参数含义，可以看turnserver.conf中的说明。
