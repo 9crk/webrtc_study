@@ -5,7 +5,12 @@ git clone https://github.com/EricssonResearch/openwebrtc-examples
 rm openwebrtc-examples/web/client/sdp.js
 wget https://raw.githubusercontent.com/EricssonResearch/openwebrtc/master/bridge/client/sdp.js -O openwebrtc-examples/web/client/sdp.js
 cd openwebrtc-examples/web/
-node channel_server.js
+
+node channel_server.js 8080 8443 pkey.pem cert.perm
+
+
+
+openssl req -x509 -newkey rsa:2048 -keyout /etc/turn_server_pkey.pem -out /etc/turn_server_cert.pem -days 99999 -nodes
 
 
 
