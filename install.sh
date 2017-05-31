@@ -15,15 +15,4 @@ openssl req -x509 -newkey rsa:2048 -keyout ~/webrtc_server_pkey.pem -out ~/webrt
 
 sudo apt-get -y install coturn
 sudo cp turnserver.conf /etc/turnserver.conf
-
 #nohup turnserver -v &
-
-
-
-
-
-
-
-
-
-
