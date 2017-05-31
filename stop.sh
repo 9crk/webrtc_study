@@ -1,0 +1,2 @@
+killall nodejs
+killall turnserver
