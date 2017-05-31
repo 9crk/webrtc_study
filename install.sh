@@ -8,6 +8,9 @@ wget https://raw.githubusercontent.com/EricssonResearch/openwebrtc/master/bridge
 
 openssl req -x509 -newkey rsa:2048 -keyout ~/webrtc_server_pkey.pem -out ~/webrtc_server_cert.pem -days 99999 -nodes
 
+sed 's/mmt-stun.verkstad.net/119.23.53.241/g' -i openwebrtc-examples/web/client/main.js
+sed 's/mmt-turn.verkstad.net/119.23.53.241/g' -i openwebrtc-examples/web/client/main.js
+
 #cd openwebrtc-examples/web/ 
 #nohup nodejs channel_server.js 8080 8443 ~/webrtc_server_pkey.pem ~/webrtc_server_cert.perm &
 
