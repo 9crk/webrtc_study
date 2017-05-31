@@ -8,13 +8,15 @@ wget https://raw.githubusercontent.com/EricssonResearch/openwebrtc/master/bridge
 
 openssl req -x509 -newkey rsa:2048 -keyout ~/webrtc_server_pkey.pem -out ~/webrtc_server_cert.pem -days 99999 -nodes
 
-cd openwebrtc-examples/web/
-
-nohup node channel_server.js 8080 8443 ~/webrtc_server_pkey.pem ~/webrtc_server_cert.perm &
-
+#cd openwebrtc-examples/web/ 
+#nohup nodejs channel_server.js 8080 8443 ~/webrtc_server_pkey.pem ~/webrtc_server_cert.perm &
 
 
-sudo apt-get -y install turnserver
+
+sudo apt-get -y install coturn
+sudo cp turnserver.conf /etc/turnserver.conf
+
+#nohup turnserver -v &
 
 
 
